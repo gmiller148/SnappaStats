@@ -1,4 +1,6 @@
-let elk = document.getElementById('elk');
-elk.innerHTML="<marquee>Hello</marquee>";
+function main() {
+    renderNavbar();
+    // post('/api/newuser',{'name':'test'});
+}
 
-post('/api/user',{"name":"humpfrey"});
+main();
