@@ -7,12 +7,50 @@
         <link rel="shortcut icon" href="/static/assets/images/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/static/assets/images/favicon.ico" type="image/x-icon">
     </head>
-    <body class='bg-dark'>
+    <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="navbar-brand" href="#">SnappaStats</div>
             <div class="navbar-nav" id="nav-item-container">
             </div>
         </nav>
+        <div class="container score-ctr">
+            <div class="row">
+                <div class="col">Home</div>
+                <div class="col-2">vs.</div>
+                <div class="col">Away</div>
+            </div>
+            <div class="row">
+                <div class="col">0</div>
+                <div class="col-2">-</div>
+                <div class="col">0</div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col bg-secondary" id="homeL"> World</div>
+                <div class="col bg-dark" id="homeR">Hello</div>
+                <div class="col bg-secondary" id="awayL">Times Two</div>
+                <div class="col bg-dark" id="awayR">Again</div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">A lot longer of a phrase</div>
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-secondary" type="button">-</button>
+                        </div>
+                        <div class="number">10</div>
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="button">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
 
         <script src="/socket.io/socket.io.js"></script>
         <script src="/static/js/api.js"></script>

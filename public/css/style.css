@@ -1,0 +1,29 @@
+.score-ctr {
+    text-align: center;
+    font-size: 2em;
+
+}
+
+.number {
+    text-align: center;
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+    height:38px;
+    padding-right:5px;
+    padding-left:5px;
+    padding-top:5px;
+    width:34px;
+}
+
+.play-label {
+    text-align: left;
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+    height:38px;
+    padding-right:5px;
+    padding-left:5px;
+    padding-top:5px;
+    width: 100px;
+}

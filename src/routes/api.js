@@ -1,6 +1,7 @@
 const express = require('express');
 
 const User = require('../models/user');
+const Game = require('../models/user');
 
 const router = express.Router();
 
@@ -40,5 +41,12 @@ router.get('/allusers', function(req, res) {
         res.send(u);
     });
 });
+
+router.get('/user',function(req,res) {
+    User.findOne({'_id':req.query._id}).then(u => {
+        res.send(u);
+    });
+});
+
 
 module.exports = router;
