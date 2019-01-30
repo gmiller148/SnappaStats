@@ -76,7 +76,6 @@ function renderUserContainer(user, divID) {
     nameContainer.innerText = user.name;
     div.appendChild(nameContainer);
     
-
     let containerDiv = document.createElement('div');
     containerDiv.setAttribute('class','container');
     
@@ -90,17 +89,16 @@ function renderUserContainer(user, divID) {
         phraseCol.innerText = possiblePlays[i];
         rowDiv.appendChild(phraseCol);
         
-        let numCol = document.createAttribute('div');
+        let numCol = document.createElement('div');
         numCol.setAttribute('class','col');
        
-        let inputDiv = document.createAttribute('div');
+        let inputDiv = document.createElement('div');
         inputDiv.setAttribute('class','input-group mb-3');
         
-        
-        let minusInput = document.createAttribute('div');
+        let minusInput = document.createElement('div');
         minusInput.setAttribute('class','input-group-prepend');
         
-        let minusButton = document.createAttribute('button');
+        let minusButton = document.createElement('button');
         minusButton.setAttribute('class','btn btn-secondary');
         minusButton.setAttribute('type','button');
         minusButton.innerText = '-';
@@ -110,10 +108,10 @@ function renderUserContainer(user, divID) {
         numberDiv.setAttribute('class','number');
         numberDiv.innerText='0';
 
-        let plusInput = document.createAttribute('div');
+        let plusInput = document.createElement('div');
         plusInput.setAttribute('class','input-group-prepend');
 
-        let plusButton = document.createAttribute('button');
+        let plusButton = document.createElement('button');
         plusButton.setAttribute('class','btn btn-secondary');
         plusButton.setAttribute('type','button');
         plusButton.innerText = '+';
@@ -128,7 +126,7 @@ function renderUserContainer(user, divID) {
 
         containerDiv.appendChild(rowDiv);
     }
-    console.log('here');
+
 
     div.appendChild(containerDiv);
 }
