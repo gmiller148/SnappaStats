@@ -34,16 +34,22 @@
                     <th scope="col">H</th>
                     <th scope="col">L</th>
                     <th scope="col">F</th>
-                    <th scope="col">CKs</th>
+                    <th scope="col">CK</th>
                     <th scope="col">CK Pts</th>
-                    <th scope="col">KKs</th>
+                    <th scope="col">KK</th>
                     <th scope="col">KK Pts</th>
-                    <th scope="col">SKs</th>
+                    <th scope="col">SK</th>
                 </tr>
             </thead>
             <tbody id="user-table-body">
             </tbody>
         </table>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon2" id='new-user-input'>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="new-user-btn">Add New User</button>
+            </div>
+        </div>
         <script src="/socket.io/socket.io.js"></script>
         <script src="/static/js/api.js"></script>
         <script src="/static/js/navbar.js"></script>

@@ -1,15 +1,18 @@
 function main() {
     renderNavbar();
     renderTable();
+    startNewUserButton();
 }
 
 const dataArray = ['catches', 'drops', 'clinkerSnag','clinkerDrop','knickerSnag','knickerDrop','missComms','FIFA','tosses','shotsOnGoal','points','scratches','misses','highs','lows','fouls','clinkers','clinkerScores','knickers','knickerScores','sinkers'];
 
 function renderTable() {
     let userTableBody = document.getElementById('user-table-body');
+    userTableBody.innerHTML="";
     
     get('/api/allusers',{}).then(users => {
-        for(let i = 0; i< users.length; i++) {
+        console.log(users.length);
+        for(let i = 0; i < users.length; i++) {
             let userTr = document.createElement('tr');
             let userTh = document.createElement('th');
             userTh.setAttribute('scope','row');
@@ -25,16 +28,25 @@ function renderTable() {
                 td.innerText = users[i].stats[dataArray[j]];
                 userTr.appendChild(td);
             }
-
             userTableBody.appendChild(userTr);
-
-            
         }
-        
     });
     
 
 }
+
+function startNewUserButton() {
+    let newUserButton = document.getElementById('new-user-btn');
+    newUserButton.addEventListener('click',() => {
+        let newUserInput = document.getElementById('new-user-input');
+        post('/api/newuser',{'name':newUserInput.value}).then(res => {
+            renderTable();
+            newUserInput.value="";
+        });
+    });
+}
+
+
 
 
 main();

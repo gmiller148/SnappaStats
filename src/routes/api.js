@@ -33,7 +33,7 @@ router.post('/newuser',function(req,res) {
         }
     });
     newUser.save();
-    console.log(req.body.name);
+    res.send({});
 });
 
 router.get('/allusers', function(req, res) {

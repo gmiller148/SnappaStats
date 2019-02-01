@@ -5,6 +5,7 @@ function main() {
 
 let currentPlayers = []
 const possiblePlays = ['Catches','Drops','Clinker Snags','Clinker Drops','Knicker Snags','Knicker Drops','Miss Comms','FIFA','Tosses','SOG','Points','Scratches','Misses','Highs','Lows','Fouls','Clinkers','Clinker Scores','Knickers','Knicker Scores','Sinkers'];
+const possiblePlaysAbbr = ['Catches','Drops','CKS','CKD','KKS','KKD','MCs','FIFA','Tosses','SOG','Pts','SCRs','Xs','H','L','F','CK','CKPts','KK','KKPts','SK']
 
 function renderDropdowns() {
     let homeRightContainer = document.getElementById('homeR');
@@ -101,11 +102,14 @@ function renderUserContainer(user, divID) {
         let minusButton = document.createElement('button');
         minusButton.setAttribute('class','btn btn-secondary');
         minusButton.setAttribute('type','button');
+        minusButton.setAttribute('id',user._id + '-' +possiblePlaysAbbr[i] + '+minus');
         minusButton.innerText = '-';
+        minusButton.addEventListener('click',subtractOne);
         minusInput.appendChild(minusButton);
 
         let numberDiv = document.createElement('div');
         numberDiv.setAttribute('class','number');
+        numberDiv.setAttribute('id',user._id + '-' + possiblePlaysAbbr[i]);
         numberDiv.innerText='0';
 
         let plusInput = document.createElement('div');
@@ -114,7 +118,9 @@ function renderUserContainer(user, divID) {
         let plusButton = document.createElement('button');
         plusButton.setAttribute('class','btn btn-secondary');
         plusButton.setAttribute('type','button');
+        plusButton.setAttribute('id',user._id+'-'+possiblePlaysAbbr[i]+'+plus');
         plusButton.innerText = '+';
+        plusButton.addEventListener('click',addOne);
         plusInput.appendChild(plusButton);
 
         inputDiv.appendChild(minusInput);
@@ -130,5 +136,35 @@ function renderUserContainer(user, divID) {
 
     div.appendChild(containerDiv);
 }
+
+
+function addOne() {
+    let divID = this.id;
+    let minusLoc = divID.indexOf('-');
+    let plusLoc = divID.indexOf('+');
+    let el = document.getElementById(divID.substring(0,plusLoc));
+    let score = parseInt(el.innerText);
+    el.innerText = score+1;
+    if(divID.substring(minusLoc+1,plusLoc)=="Pts") {
+        let team = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.id.substring(0,4);
+        let teamDiv = document.getElementById(team+'-score');
+        teamDiv.innerText = parseInt(teamDiv.innerText)+1;
+    }
+}
+
+function subtractOne() {
+    let divID = this.id;
+    let minusLoc = divID.indexOf('-');
+    let plusLoc = divID.indexOf('+');
+    let el = document.getElementById(divID.substring(0,plusLoc));
+    let score = parseInt(el.innerText);
+    el.innerText = score-1;
+    if(divID.substring(minusLoc+1,plusLoc)=="Pts") {
+        let team = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.id.substring(0,4);
+        let teamDiv = document.getElementById(team+'-score');
+        teamDiv.innerText = parseInt(teamDiv.innerText)-1;
+    }
+}
+
 
 main();
