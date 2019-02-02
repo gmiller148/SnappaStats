@@ -13,27 +13,30 @@
             <div class="navbar-nav" id="nav-item-container">
             </div>
         </nav>
-        <div class="container score-ctr">
-            <div class="row">
-                <div class="col">Home</div>
-                <div class="col-2">vs.</div>
-                <div class="col">Away</div>
+        <div class="container-fluid bg-primary score-ctr">
+            <div class="row text-light">
+                <div class="col display-4">Home</div>
+                <div class="col-2 display-4">vs.</div>
+                <div class="col display-4">Away</div>
             </div>
             <div class="row">
-                <div class="col" id="home-score">0</div>
-                <div class="col-2">-</div>
-                <div class="col" id="away-score">0</div>
+                <div class="col h1" id="home-score">0</div>
+                <div class="col-2 h1">-</div>
+                <div class="col h1" id="away-score">0</div>
             </div>
         </div>
         <div class="container-fluid">
-            <div class="row">
-                <div class="col bg-secondary" id="homeL"> World</div>
-                <div class="col bg-dark" id="homeR">Hello</div>
-                <div class="col bg-secondary" id="awayL">Times Two</div>
-                <div class="col bg-dark" id="awayR">Again</div>
+            <div class="row mh-100">
+                <div class="col bg-dark text-light border border-light text-center" id="homeL"><div class="h1">Home Left</div></div>
+                <div class="col bg-dark text-light border border-light text-center" id="homeR"><div class="h1">Home Right</div></div>
+                <div class="col bg-dark text-light border border-light text-center" id="awayL"><div class="h1">Away Left</div></div>
+                <div class="col bg-dark text-light border border-light text-center" id="awayR"><div class="h1">Away Right</div></div>
             </div>
         </div>
-        
+        <div class="container">
+            <button type="button" class="btn btn-outline-primary btn-block btn-block" id="save-game-btn">Save Game</button>
+        </div>
+
         <script src="/socket.io/socket.io.js"></script>
         <script src="/static/js/api.js"></script>
         <script src="/static/js/navbar.js"></script>
