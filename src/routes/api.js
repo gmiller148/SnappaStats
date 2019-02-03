@@ -11,6 +11,7 @@ router.post('/newuser',function(req,res) {
     const newUser = new User({
         name:req.body.name,
         stats: {
+            gamesPlayed       : 0,
             catches           : 0,
             drops             : 0,
             clinkerSnag       : 0,
@@ -76,6 +77,7 @@ router.post('/newgame',function(req, res) {
 function updatePlayer(player) {
     User.findOne({'name':player.name}).then(u => {
         u.stats = {
+            'gamesPlayed':u.stats.gamesPlayed + 1,
             'catches':u.stats.catches + player.stats.catches,
             'drops':u.stats.drops + player.stats.drops,
             'clinkerSnag':u.stats.clinkerSnag + player.stats.clinkerSnag,

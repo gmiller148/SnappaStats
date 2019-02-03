@@ -40,3 +40,14 @@ body {
 .tableheaders {
     color:#eee693;
 }
+
+.stats-cont {
+    margin-bottom: 0px;
+    color: #eee693;
+    padding: .3em;
+}
+
+.sigma-stats {
+    color: #eee693;
+    margin-left:-.2em;
+}
