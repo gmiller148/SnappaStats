@@ -172,7 +172,7 @@ function renderTable() {
             if(users[i].stats.tosses===0) {
                 pointsPerToss=0;
             } else {
-                pointsPerToss=users[i].stats.points/users[i].stats.tosses;
+                pointsPerToss=users[i].stats.points/users[i].stats.tosses*100;
             }
             if((users[i].stats.catches+users[i].stats.drops)===0) {
                 dropsPerTarget=0
