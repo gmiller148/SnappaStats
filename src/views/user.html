@@ -19,64 +19,67 @@
             </div>
         </nav>
         <div class="container-fluid bg-primary">
-            <div class="h2 stats-cont">Raw Stats</div>
+            <div class="h2 stats-cont" data-toggle="tooltip" data-placement="top" title="Click a header to sort">Raw Stats</div>
         </div>
-        <table class="table table-dark">
+        <table class="table table-dark" id="raw-stats">
             <thead>
                 <tr class="tableheaders">
-                    <th scope="col">#</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Player Name">Name</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Games Played">GP</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Catches">C</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Drops">D</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Clinker Snag">CKS</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Clinker Drop">CKD</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Knicker Snag">KKS</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Knicker Drop">KKD</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Misscommunications">MCs</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="FIFAs">FIFA</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Tosses">T</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Shots on Goal">SOG</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Points">Pts</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Scratches">SCRs</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Misses">Xs</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Highs">H</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Lows">L</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Fouls">F</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Clinkers">CK</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Clinker Points">CK Pts</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Knickers">KK</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Knicker Points">KK Pts</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Sinkers">SK</th>
+                    <!-- <th scope="col">#</th> -->
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Player Name" id="no-0">Name</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Games Played" id="no-1">GP</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Catches" id="no-2">C</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Drops" id="no-3">D</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Clinker Snag" id="no-4">CKS</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Clinker Drop" id="no-5">CKD</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Knicker Snag" id="no-6">KKS</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Knicker Drop" id="no-7">KKD</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Misscommunications" id="no-8">MCs</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="FIFAs" id="no-9">FIFA</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Tosses" id="no-10">T</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Shots on Goal" id="no-11">SOG</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Points" id="no-12">Pts</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Scratches" id="no-13">SCRs</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Misses" id="no-14">Xs</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Highs" id="no-15">H</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Lows" id="no-16">L</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Fouls" id="no-17">F</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Clinkers" id="no-18">CK</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Clinker Points" id="no-19">CK Pts</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Knickers" id="no-20">KK</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Knicker Points" id="no-21">KK Pts</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Sinkers" id="no-22">SK</th>
                 </tr>
             </thead>
             <tbody id="user-table-body">
             </tbody>
         </table>
         <div class="container-fluid bg-primary">
-            <div class="h2 stats-cont">Analytics</div>
+            <div class="h2 stats-cont" data-toggle="tooltip" data-placement="top" title="Click a header to sort">Analytics</div>
         </div>
-        <table class="table table-dark">
+        <table class="table table-dark" id="analytics-stats">
             <thead>
                 <tr class="tableheaders">
-                    <th scope="col">#</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Player Name">Name</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Games Played">GP</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Points to Drop">Pts/D</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Catch to Drop">C/D</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Toss to Points">T/Pts</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Shots on Goal to Foul">SOG/F</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Shots on Goal to Points">SOG/Pts</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Targets per Game">Targ/G</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Catches per Game">C/G</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Tosses per Game">T/G</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Points per Game">PPG</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Field Goal %">SOG%</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Foul %">F%</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Scracth %">SCR%</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Scoring %">S%</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Catch %">C%</th>
-                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Efficiency">Eff</th>
+                    <!-- <th scope="col">#</th> -->
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Player Name" id="ao-0">Name</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Games Played" id="ao-1">GP</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Wins" id="ao-2">W</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Losses" id="ao-3">L</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Winning %" id="ao-4">%</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Points to Drop" id="ao-5">Pts/D</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Catch to Drop" id="ao-6">C/D</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Toss to Points" id="ao-7">T/Pts</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Shots on Goal to Foul" id="ao-8">SOG/F</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Shots on Goal to Points" id="ao-9">SOG/Pts</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Targets per Game" id="ao-10">Targ/G</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Catches per Game" id="ao-11">C/G</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Tosses per Game" id="ao-12">T/G</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Points per Game" id="ao-13">PPG</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Field Goal %" id="ao-14">SOG%</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Foul %" id="ao-15">F%</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Scracth %" id="ao-16">SCR%</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Scoring %" id="ao-17">S%</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Catch %" id="ao-18">C%</th>
+                    <th scope="col" data-toggle="tooltip" data-placement="top" title="Efficiency" id="ao-19">Eff</th>
                 </tr>
             </thead>
             <tbody id="analytics-table-body">

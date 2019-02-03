@@ -9,6 +9,7 @@ function main() {
         startNewUserButton(usersArray);
     })
     startTooltips();
+    addSorters();
     
 }
 
@@ -20,10 +21,10 @@ function renderTable() {
         userTableBody.innerHTML="";
         for(let i = 0; i < users.length; i++) {
             let userTr = document.createElement('tr');
-            let userTh = document.createElement('th');
-            userTh.setAttribute('scope','row');
-            userTh.innerText=(i+1);
-            userTr.appendChild(userTh);
+            // let userTh = document.createElement('th');
+            // userTh.setAttribute('scope','row');
+            // userTh.innerText=(i+1);
+            // userTr.appendChild(userTh);
     
             let usernameTd = document.createElement('td');
             usernameTd.innerText = users[i].name;
@@ -41,10 +42,10 @@ function renderTable() {
         analyticsTableBody.innerHTML="";
         for(let i = 0; i < users.length; i++) {
             let userTr = document.createElement('tr');
-            let userTh = document.createElement('th');
-            userTh.setAttribute('scope','row');
-            userTh.innerText=(i+1);
-            userTr.appendChild(userTh);
+            // let userTh = document.createElement('th');
+            // userTh.setAttribute('scope','row');
+            // userTh.innerText=(i+1);
+            // userTr.appendChild(userTh);
     
             let usernameTd = document.createElement('td');
             usernameTd.innerText = users[i].name;
@@ -53,6 +54,24 @@ function renderTable() {
             let gpTd = document.createElement('td');
             gpTd.innerText = users[i].stats.gamesPlayed;
             userTr.appendChild(gpTd);
+
+            let winsTd = document.createElement('td');
+            winsTd.innerText = users[i].stats.wins;
+            userTr.appendChild(winsTd);
+
+            let lossesTd = document.createElement('td');
+            lossesTd.innerText = users[i].stats.losses;
+            userTr.appendChild(lossesTd);
+
+            let winningPer = document.createElement('td');
+            if(users[i].stats.losses===0 && users[i].stats.wins===0) {
+                winningPer.innerText=0;
+            } else if(users[i].stats.losses===0) {
+                winningPer.innerText=1;
+            } else {
+                winningPer.innerText=Math.round(users[i].stats.wins/(users[i].stats.gamesPlayed)*1000)/1000;
+            }
+            userTr.appendChild(winningPer);
 
             let PPDtd = document.createElement('td');
             if(users[i].stats.drops===0) {
@@ -186,10 +205,11 @@ function renderTable() {
             }
             userTr.appendChild(effTd);
 
-
             analyticsTableBody.appendChild(userTr);
 
+            
         }
+        
     });
     
 
@@ -223,7 +243,65 @@ function startTooltips() {
     });
 }
 
+function sortTable(number) {
+    number=parseInt(this.id.substring(3));
+    var table, rows, switching, i, x, y, shouldSwitch;
+    if(this.id.substring(0,1)==='a') {
+        table = document.getElementById("analytics-stats");
+    } else {
+        table = document.getElementById("raw-stats");
+    }
+    switching = true;
+    /*Make a loop that will continue until
+    no switching has been done:*/
+    while (switching) {
+      //start by saying: no switching is done:
+      switching = false;
+      rows = table.rows;
+      /*Loop through all table rows (except the
+      first, which contains table headers):*/
+      for (i = 1; i < (rows.length - 1); i++) {
+        //start by saying there should be no switching:
+        shouldSwitch = false;
+        /*Get the two elements you want to compare,
+        one from current row and one from the next:*/
+        x = rows[i].getElementsByTagName("TD")[number];
+        y = rows[i + 1].getElementsByTagName("TD")[number];
+        console.log(x.innerHTML);
+        //check if the two rows should switch place:
+        if(number===0) {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                //if so, mark as a switch and break the loop:
+                shouldSwitch = true;
+                break;
+              }
+        } else {
+            if (parseInt(x.innerText) < parseInt(y.innerText)) {
+              //if so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+        }
+      }
+      if (shouldSwitch) {
+        /*If a switch has been marked, make the switch
+        and mark that a switch has been done:*/
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+      }
+    }
+  }
 
+function addSorters() {
+    for(let i = 0; i<23;i++) {
+        let currentTH = document.getElementById('no-'+i);
+        currentTH.addEventListener('click',sortTable);
+    }
+    for(let i=0;i<20;i++) {
+        let currentTH = document.getElementById('ao-'+i);
+        currentTH.addEventListener('click',sortTable);
+    }
+}
 
 
 main();

@@ -32,7 +32,9 @@ router.post('/newuser',function(req,res) {
             clinkerScores     : 0,
             knickers          : 0,
             knickerScores     : 0,
-            sinkers           : 0
+            sinkers           : 0,
+            wins              : 0,
+            losses            : 0
         }
     });
     newUser.save();
@@ -67,14 +69,26 @@ router.post('/newgame',function(req, res) {
     newGame.save();
     let players = [req.body.homeTeamLeft,req.body.homeTeamRight,req.body.awayTeamLeft,req.body.awayTeamRight];
     for(let i = 0; i < 4; i++) {
-        if (players[i].name) {
-            updatePlayer(players[i]);
+        if(players[i].name) {
+            if(req.body.scoreHome>req.body.scoreAway) {
+                if(i<2) {
+                    updatePlayer(players[i],1,0);
+                } else {
+                    updatePlayer(players[i],0,1);
+                }
+            } else {
+                if(i<2) {
+                    updatePlayer(players[i],0,1);
+                } else {
+                    updatePlayer(players[i],1,0);
+                }
+            }
         }
     }
     res.send({});
 });
 
-function updatePlayer(player) {
+function updatePlayer(player,w,l) {
     User.findOne({'name':player.name}).then(u => {
         u.stats = {
             'gamesPlayed':u.stats.gamesPlayed + 1,
@@ -98,7 +112,9 @@ function updatePlayer(player) {
             'clinkerScores':u.stats.clinkerScores + player.stats.clinkerScores,
             'knickers':u.stats.knickers + player.stats.knickers,
             'knickerScores':u.stats.knickerScores + player.stats.knickerScores,
-            'sinkers':u.stats.sinkers + player.stats.sinkers
+            'sinkers':u.stats.sinkers + player.stats.sinkers,
+            'wins':u.stats.wins + w,
+            'losses':u.stats.losses + l,
         }
         u.save();
         
