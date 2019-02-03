@@ -45,13 +45,19 @@ function renderTable() {
 function startNewUserButton(players) {
     let newUserButton = document.getElementById('new-user-btn');
     newUserButton.addEventListener('click',() => {
-        let newUserInput = document.getElementById('new-user-input');
-        if(!players.includes(newUserInput.value)) {
-            post('/api/newuser',{'name':newUserInput.value}).then(res => {
-                renderTable();
-                newUserInput.value="";
-            });
-        } 
+        get('/api/WyNMMO6aZN',{}).then(res => {
+            let e0ogyg6TFS = prompt("")
+            if(e0ogyg6TFS===res.WyNMMO6aZN) {
+                let newUserInput = document.getElementById('new-user-input');
+                if(!players.includes(newUserInput.value)) {
+                    post('/api/newuser',{'name':newUserInput.value}).then(res => {
+                        renderTable();
+                        newUserInput.value="";
+                    });
+                } 
+            }
+        });
+
     });
 }
 
@@ -59,7 +65,6 @@ function startTooltips() {
     $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();   
     });
-    console.log('here');
 }
 
 
