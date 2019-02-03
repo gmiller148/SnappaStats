@@ -276,7 +276,7 @@ function sortTable(number) {
                 break;
               }
         } else {
-            if (parseInt(x.innerText) < parseInt(y.innerText)) {
+            if (parseFloat(x.innerText) < parseFloat(y.innerText)) {
               //if so, mark as a switch and break the loop:
               shouldSwitch = true;
               break;
