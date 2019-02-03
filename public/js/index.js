@@ -7,7 +7,7 @@ function main() {
 let currentPlayersIDs = []
 let currentPlayers = []
 const possiblePlays = ['Catches','Drops','Clinker Snags','Clinker Drops','Knicker Snags','Knicker Drops','Miss Comms','FIFA','Tosses','SOG','Points','Scratches','Misses','Highs','Lows','Fouls','Clinkers','Clinker Scores','Knickers','Knicker Scores','Sinkers'];
-const possiblePlaysAbbr = ['Catches','Drops','CKS','CKD','KKS','KKD','MCs','FIFA','Tosses','SOG','Pts','SCRs','Xs','H','L','F','CK','CKPts','KK','KKPts','SK']
+const possiblePlaysAbbr = ['Cs','Drops','CKS','CKD','KKS','KKD','MCs','FIFA','Ts','SOG','Pts','SCRs','Xs','H','L','F','CK','CKPts','KK','KKPts','SK']
 let moveHistory = []
 
 function renderDropdowns() {
@@ -92,7 +92,7 @@ function renderUserContainer(user, divID) {
         
         let phraseCol = document.createElement('div');
         phraseCol.setAttribute('class','col font-weight-bold');
-        phraseCol.innerText = possiblePlays[i];
+        phraseCol.innerText = possiblePlaysAbbr[i];
         rowDiv.appendChild(phraseCol);
         
         let numCol = document.createElement('div');
