@@ -92,6 +92,10 @@ function renderUserContainer(user, divID) {
         
         let phraseCol = document.createElement('div');
         phraseCol.setAttribute('class','col font-weight-bold');
+        phraseCol.setAttribute('data-toggle','tooltip');
+        phraseCol.setAttribute('data-placement','top');
+        phraseCol.setAttribute('title',possiblePlays[i]);
+        // <th scope="col" data-toggle="tooltip" data-placement="top" title="Player Name" id="no-0">
         phraseCol.innerText = possiblePlaysAbbr[i];
         rowDiv.appendChild(phraseCol);
         
@@ -137,6 +141,9 @@ function renderUserContainer(user, divID) {
 
         containerDiv.appendChild(rowDiv);
     }
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
 
 
     div.appendChild(containerDiv);
