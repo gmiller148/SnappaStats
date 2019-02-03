@@ -155,6 +155,15 @@ function addOne() {
         let team = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.id.substring(0,4);
         let teamDiv = document.getElementById(team+'-score');
         teamDiv.innerText = parseInt(teamDiv.innerText)+1;
+    } else if(divID.substring(minusLoc+1,plusLoc)=="FIFA") {
+        let team = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.id.substring(0,4);
+        if(team==="home"){
+            let teamDiv = document.getElementById('away-score');
+            teamDiv.innerText = parseInt(teamDiv.innerText)-1;
+        } else {
+            let teamDiv = document.getElementById('home-score');
+            teamDiv.innerText = parseInt(teamDiv.innerText)-1;
+        }
     }
     moveHistory.push(divID.substring(tildeLoc+1) + ":" + divID.substring(minusLoc+1,plusLoc));
 }
@@ -171,6 +180,15 @@ function subtractOne() {
         let team = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.id.substring(0,4);
         let teamDiv = document.getElementById(team+'-score');
         teamDiv.innerText = parseInt(teamDiv.innerText)-1;
+    } else if(divID.substring(minusLoc+1,plusLoc)=="FIFA") {
+        let team = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.id.substring(0,4);
+        if(team==="home"){
+            let teamDiv = document.getElementById('away-score');
+            teamDiv.innerText = parseInt(teamDiv.innerText)+1;
+        } else {
+            let teamDiv = document.getElementById('home-score');
+            teamDiv.innerText = parseInt(teamDiv.innerText)+1;
+        }
     }
     moveHistory.push(divID.substring(tildeLoc+1) + ":" + divID.substring(minusLoc+1,plusLoc)+"(rm)");
 }

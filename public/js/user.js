@@ -1,7 +1,15 @@
 function main() {
     renderNavbar();
     renderTable();
-    startNewUserButton();
+    get('/api/allusers',{}).then(users => {
+        usersArray = []
+        for(let user of users) {
+            usersArray.push(user.name);
+        }
+        startNewUserButton(usersArray);
+    })
+    startTooltips();
+    
 }
 
 const dataArray = ['catches', 'drops', 'clinkerSnag','clinkerDrop','knickerSnag','knickerDrop','missComms','FIFA','tosses','shotsOnGoal','points','scratches','misses','highs','lows','fouls','clinkers','clinkerScores','knickers','knickerScores','sinkers'];
@@ -11,7 +19,6 @@ function renderTable() {
     userTableBody.innerHTML="";
     
     get('/api/allusers',{}).then(users => {
-        console.log(users.length);
         for(let i = 0; i < users.length; i++) {
             let userTr = document.createElement('tr');
             let userTh = document.createElement('th');
@@ -35,15 +42,24 @@ function renderTable() {
 
 }
 
-function startNewUserButton() {
+function startNewUserButton(players) {
     let newUserButton = document.getElementById('new-user-btn');
     newUserButton.addEventListener('click',() => {
         let newUserInput = document.getElementById('new-user-input');
-        post('/api/newuser',{'name':newUserInput.value}).then(res => {
-            renderTable();
-            newUserInput.value="";
-        });
+        if(!players.includes(newUserInput.value)) {
+            post('/api/newuser',{'name':newUserInput.value}).then(res => {
+                renderTable();
+                newUserInput.value="";
+            });
+        } 
     });
+}
+
+function startTooltips() {
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
+    console.log('here');
 }
 
 
