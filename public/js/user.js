@@ -10,7 +10,7 @@ function main() {
     })
     startTooltips();
     addSorters();
-    
+    addFixedtHead();
 }
 
 const dataArray = ['gamesPlayed','catches', 'drops', 'clinkerSnag','clinkerDrop','knickerSnag','knickerDrop','missComms','FIFA','tosses','shotsOnGoal','points','scratches','misses','highs','lows','fouls','clinkers','clinkerScores','knickers','knickerScores','sinkers'];
@@ -267,7 +267,6 @@ function sortTable(number) {
         one from current row and one from the next:*/
         x = rows[i].getElementsByTagName("TD")[number];
         y = rows[i + 1].getElementsByTagName("TD")[number];
-        console.log(x.innerHTML);
         //check if the two rows should switch place:
         if(number===0) {
             if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
@@ -303,5 +302,28 @@ function addSorters() {
     }
 }
 
+// Code goes here
+'use strict'
+
+
+function addFixedtHead() {
+    window.onload = function(){
+        let tableCont = document.querySelector('#table-cont')
+        let tableContA = document.querySelector('#table-cont-a')
+        /**
+         * scroll handle
+         * @param {event} e -- scroll event
+         */
+        function scrollHandle (e){
+          let scrollTop = this.scrollTop;
+          this.querySelector('thead').style.transform = 'translateY(' + scrollTop + 'px)';
+        }
+        
+        tableCont.addEventListener('scroll',scrollHandle)
+        tableContA.addEventListener('scroll',scrollHandle)
+    }
+    
+
+}
 
 main();

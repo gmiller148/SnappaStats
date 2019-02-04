@@ -56,3 +56,14 @@ body {
     height: 40px;
     margin-right: 0.2em;
 }
+
+.table-cont{
+    /**make table can scroll**/
+    max-height: 600px;
+    overflow: auto;
+    /** add some style**/
+    /*padding: 2px;*/
+}
+thead {
+    background:#212529;
+}
