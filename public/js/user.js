@@ -10,7 +10,7 @@ function main() {
     })
     startTooltips();
     addSorters();
-    addFixedtHead();
+    //addFixedtHead();
 }
 
 const dataArray = ['gamesPlayed','catches', 'drops', 'clinkerSnag','clinkerDrop','knickerSnag','knickerDrop','missComms','FIFA','tosses','shotsOnGoal','points','scratches','misses','highs','lows','fouls','clinkers','clinkerScores','knickers','knickerScores','sinkers'];
